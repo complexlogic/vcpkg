@@ -41,6 +41,15 @@ else()
 endif()
 
 set(OPTIONS "--enable-pic --disable-doc --enable-debug --enable-runtime-cpudetect --disable-autodetect")
+set(DECODERS flac mp2float mp3float vorbis opus speex aac libfdk_aac alac wavpack ape mpc8 wmalossless wmav1 wmav2 pcm_s8 pcm_s16le pcm_s32le pcm_f16le pcm_f24le pcm_f32le)
+set(DEMUXERS flac mp3 ogg mov,mp4,m4a,3gp,3g2,mj2 wv ape mpc8 asf wav aiff)
+set(OPTIONS "${OPTIONS} --disable-decoders --disable-encoders --disable-demuxers --disable-muxers --disable-hwaccels")
+foreach(DEMUXER ${DEMUXERS})
+  set(OPTIONS "${OPTIONS} --enable-demuxer=${DEMUXER}")
+endforeach ()
+foreach(DECODER ${DECODERS})
+  set(OPTIONS "${OPTIONS} --enable-decoder=${DECODER}")
+endforeach ()
 
 if(VCPKG_TARGET_IS_ANDROID)
     # Disable asm and x86asm on all android targets because they trigger build failures:
