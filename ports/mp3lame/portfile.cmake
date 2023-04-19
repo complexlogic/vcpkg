@@ -8,7 +8,6 @@ vcpkg_from_sourceforge(
     SHA512 0844b9eadb4aacf8000444621451277de365041cc1d97b7f7a589da0b7a23899310afd4e4d81114b9912aa97832621d20588034715573d417b2923948c08634b
     PATCHES
         00001-msvc-upgrade-solution-up-to-vc11.patch
-        00002-detect-termcap.patch
         remove_lame_init_old_from_symbol_list.patch # deprecated https://github.com/zlargon/lame/blob/master/include/lame.h#L169
         add-macos-universal-config.patch
 )
@@ -102,7 +101,7 @@ else()
         list(APPEND OPTIONS --with-pic=yes)
     endif()
 
-    #set(OPTIONS ${OPTIONS} --disable-frontend)
+    set(OPTIONS ${OPTIONS} --disable-frontend)
     vcpkg_configure_make(
         SOURCE_PATH "${SOURCE_PATH}"
         DETERMINE_BUILD_TRIPLET
