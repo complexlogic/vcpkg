@@ -1,0 +1,17 @@
+diff --git a/configure.in b/configure.in
+index 2f8fa66..5df1e38 100644
+--- a/configure.in
++++ b/configure.in
+@@ -372,9 +372,9 @@ dnl Checks for libraries.
+ 
+ AC_CHECK_HEADERS(termcap.h)
+ AC_CHECK_HEADERS(ncurses/termcap.h)
+-AC_CHECK_LIB(termcap, initscr, HAVE_TERMCAP="termcap")
+-AC_CHECK_LIB(curses, initscr, HAVE_TERMCAP="curses")
+-AC_CHECK_LIB(ncurses, initscr, HAVE_TERMCAP="ncurses")
++AC_CHECK_LIB(termcap, tgetstr, HAVE_TERMCAP="termcap")
++AC_CHECK_LIB(curses, tgetstr, HAVE_TERMCAP="curses")
++AC_CHECK_LIB(ncurses, tgetstr, HAVE_TERMCAP="ncurses")
+ 
+ AM_ICONV
+  
