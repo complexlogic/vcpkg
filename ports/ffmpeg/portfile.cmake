@@ -34,7 +34,7 @@ endif()
 
 set(OPTIONS "--enable-pic --disable-doc --enable-runtime-cpudetect --disable-autodetect")
 set(DECODERS flac mp2float mp3float vorbis opus speex aac libfdk_aac alac wavpack ape mpc8 wmalossless wmav1 wmav2 tak pcm_s8 pcm_s16le pcm_s16be pcm_s24le pcm_s24be pcm_s32le pcm_s32be pcm_f16le pcm_f16be pcm_f24le pcm_f24be pcm_f32le pcm_f32be mjpeg dsd_lsbf dsd_lsbf_planar dsd_msbf dsd_msbf_planar)
-set(DEMUXERS flac mp3 ogg mov,mp4,m4a,3gp,3g2,mj2 wv ape mpc8 asf wav aiff tak dsf)
+set(DEMUXERS flac mp3 ogg mov,mp4,m4a,3gp,3g2,mj2 wv ape mpc8 asf wav aiff tak dsf matroska,webm)
 set(PROTOCOLS file)
 set(OPTIONS "${OPTIONS} --disable-everything")
 foreach(DEMUXER ${DEMUXERS})
